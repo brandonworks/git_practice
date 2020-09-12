@@ -1,4 +1,62 @@
-body {
-  background-color: #222222;
-  color: white;
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  background: #353535;
+  color: #fffeee;
+  font-family: "Noto Sans", sans-serif;
+  display: grid;
+}
+
+p {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+h1 {
+  padding: 2.5rem;
+  font-size: 3.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.card {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin: 0 auto;
+  background: #fffeee;
+  color: #353535;
+  /* makes a cool effect need to test more */
+  /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0,075rem 0.175rem; */
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
+    rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  height: 100%;
+  width: 80%;
+  border-radius: 10px;
+  transition: all 500ms;
+  overflow: hidden;
+  padding: 3.5rem;
+  margin-top: 2.2rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card p {
+  text-align: left;
+  font-size: 2rem;
+}
+
+.card h2 {
+  font-size: 5rem;
+}
+
+/* .card:hover {
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em,
+    rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translatey(-3px) scale(1.1);
+} */
