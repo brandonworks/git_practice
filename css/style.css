@@ -1,35 +1,187 @@
+/* Universal styles */
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans&display=swap");
 
-* {
-  box-sizing: border-box;
+:root {
+  font-size: 16px;
+  font-family: "Noto Sans", sans-serif;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+}
+
+body {
+  background: #fff;
+  color: var(--text-primary);
   margin: 0;
   padding: 0;
 }
 
-body {
-  background: #353535;
-  color: #fffeee;
-  font-family: "Noto Sans", sans-serif;
-  display: grid;
+body::-webkit-scrollbar {
+  width: 0.3rem;
 }
 
-p {
-  text-align: center;
-  font-size: 2.5rem;
+body::-webkit-scrollbar-track {
+  background-color: #1e1e24;
 }
 
-h1 {
-  padding: 2.5rem;
-  font-size: 3.5rem;
-  text-align: center;
+body::-webkit-scrollbar-thumb {
+  background: #45dabe;
+}
+
+/* universal styles end */
+
+/* navbar content */
+.navbar {
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 200ms ease;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
   text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+}
+
+.logo svg {
+  transform: rotate(0deg);
+  transition: var(--transition-speed);
+}
+
+.navbar:hover .logo svg {
+  transform: rotate(-180deg);
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.nav-link svg {
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.fa-primary {
+  color: #45dabe;
+}
+
+.fa-secondary {
+  color: #45dabe;
+}
+
+.fa-primary,
+.fa-secondary {
+  transition: var(--transition-speed);
+}
+
+/* smallscreens */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    width: 100vh;
+    height: 5rem;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+  }
+}
+
+/* largescreens */
+@media only screen and (min-width: 600px) {
+  .navbar {
+    width: 5rem;
+    height: 100vh;
+    top: 0;
+  }
+
+  .navbar:hover {
+    width: 15rem;
+  }
+
+  .navbar:hover .link-text {
+    display: inline;
+    transition: opacity var(--transition-speed);
+  }
+}
+/* navbar content end */
+
+/* main content */
+
+.main {
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+#header {
+  text-align: center;
+}
+
+#header h1 {
+  color: #45dabe;
+}
+
+#header p {
+  text-align: center;
 }
 
 .card {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   margin: 0 auto;
-  background: #fffeee;
-  color: #353535;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   /* makes a cool effect need to test more */
   /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0,075rem 0.175rem; */
   box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
@@ -49,10 +201,12 @@ h1 {
 .card p {
   text-align: left;
   font-size: 2rem;
+  color: var(--text-primary);
 }
 
 .card h2 {
   font-size: 5rem;
+  color: #45dabe;
 }
 
 .card:hover {
@@ -60,3 +214,5 @@ h1 {
     rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
   transform: translatey(-3px) scale(1.02);
 }
+
+/* main content end */
